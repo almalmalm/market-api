@@ -16,4 +16,8 @@ export class ItemsService {
   async findAll(): Promise<Item[]> {
     return this.itemModel.find().exec();
   }
+
+  async delete(id: string): Promise<any> {
+    return this.itemModel.findByIdAndDelete(id).exec();
+  }
 }
