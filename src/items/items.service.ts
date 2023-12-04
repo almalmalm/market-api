@@ -20,4 +20,20 @@ export class ItemsService {
   async delete(id: string): Promise<any> {
     return this.itemModel.findByIdAndDelete(id).exec();
   }
+
+  async updateItem(
+    id: string,
+    updateItemDto: CreateItemDto,
+  ): Promise<Item | null> {
+    try {
+      console.log(updateItemDto);
+      const updatedItem = await this.itemModel
+        .findByIdAndUpdate(id, updateItemDto, { new: true })
+        .exec();
+      console.log(updatedItem);
+      return updatedItem;
+    } catch (error) {
+      return null;
+    }
+  }
 }

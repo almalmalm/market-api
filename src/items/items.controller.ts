@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { CreateItemDto } from '../../dto/create-item.dto';
 
@@ -19,5 +27,13 @@ export class ItemsController {
   @Delete(':id')
   async delete(@Param('id') id: string) {
     return this.itemsService.delete(id);
+  }
+
+  @Put(':id')
+  async updateItem(
+    @Param('id') id: string,
+    @Body() updateItemDto: CreateItemDto,
+  ) {
+    return this.itemsService.updateItem(id, updateItemDto);
   }
 }
