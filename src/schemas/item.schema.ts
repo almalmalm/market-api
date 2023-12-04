@@ -13,6 +13,9 @@ export class Item {
 
   @Prop()
   quantity: number;
+
+  @Prop()
+  image: string;
 }
 
 export const ItemSchema = SchemaFactory.createForClass(Item);
