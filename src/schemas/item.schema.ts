@@ -16,6 +16,9 @@ export class Item {
 
   @Prop()
   image: string;
+
+  @Prop()
+  category: string;
 }
 
 export const ItemSchema = SchemaFactory.createForClass(Item);
